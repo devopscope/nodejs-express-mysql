@@ -1,0 +1,43 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: nodejs-app=529088295441.dkr.ecr.us-east-1.amazonaws.com/ecr-volkan_application_name-dev-nodejs-express-mysql
+    argocd-image-updater.argoproj.io/nodejs-app.update-strategy: semver
+    argocd-image-updater.argoproj.io/write-back-method: git
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: nodejs-app-dev
+  namespace: argocd
+spec:
+  destination:
+    namespace: dev
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: image.repository
+        value: 529088295441.dkr.ecr.us-east-1.amazonaws.com/ecr-volkan_application_name-dev-nodejs-express-mysql
+      - name: service.port
+        value: '8080'
+      # - name: livenessProbe.httpGet.path
+      #   value: /healthz
+      # - name: readinessProbe.httpGet.path
+      #   value: /healthz
+      - name: image.tag
+        value: 0.1.0
+    path: helm/nodejs-app
+    repoURL: git@github.com:devopscope/nodejs-express-mysql.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      allowEmpty: false
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
