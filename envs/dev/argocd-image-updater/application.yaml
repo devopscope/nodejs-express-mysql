@@ -15,7 +15,7 @@ spec:
     helm:
       valueFiles:
       - $values/envs/dev/argocd-image-updater/value.yaml
-  - repoURL: https://github.com/devopscope/eks-tf-cw.git
+  - repoURL: git@github.com:devopscope/nodejs-express-mysql.git
     targetRevision: main
     ref: values      
   syncPolicy:
