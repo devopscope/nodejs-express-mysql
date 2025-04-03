@@ -10,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://argoproj.github.io/argo-helm
-    chart: nginx # Replace with your chart name  
+    chart: argocd-image-updater
     helm:
       valueFiles:
       - image-updater.yaml
