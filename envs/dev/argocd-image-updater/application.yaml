@@ -16,7 +16,7 @@ spec:
       - image-updater.yaml
     version: "0.12.0"
     # path: helm/argocd-image-updater
-    targetRevision: HEAD
+    targetRevision: 0.12.1
   syncPolicy:
     automated:
       prune: true
