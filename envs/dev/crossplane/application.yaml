@@ -11,10 +11,18 @@ metadata:
     # argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
+  # source:
+  #   repoURL: git@github.com:devopscope/nodejs-express-mysql.git
+  #   targetRevision: HEAD
+  #   path: helm/crossplane
   source:
-    repoURL: git@github.com:devopscope/nodejs-express-mysql.git
-    targetRevision: HEAD
+    helm:
+      parameters:
+      - name: crossplane.replicas
+        value: 1
     path: helm/crossplane
+    repoURL: git@github.com:devopscope/nodejs-express-mysql.git
+    targetRevision: main    
   destination:
     server: https://kubernetes.default.svc
     namespace: crossplane-system
