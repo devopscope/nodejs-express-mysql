@@ -19,7 +19,7 @@ spec:
     helm:
       parameters:
       - name: crossplane.replicas
-        value: 1
+        value: "1"
     path: helm/crossplane
     repoURL: git@github.com:devopscope/nodejs-express-mysql.git
     targetRevision: main    
