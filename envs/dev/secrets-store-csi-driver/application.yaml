@@ -15,7 +15,7 @@ spec:
     helm:
       parameters:
       - name: secrets-store-csi-driver.syncSecret.enabled
-        value: true
+        value: "true"
     path: helm/secrets-store-csi-driver
     repoURL: git@github.com:devopscope/nodejs-express-mysql.git
     targetRevision: main    
