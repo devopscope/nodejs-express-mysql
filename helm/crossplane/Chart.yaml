@@ -1,9 +1,9 @@
 apiVersion: v2
 type: application
-name: external-secrets
+name: crossplane-argocd
 version: 0.0.0 # unused
 appVersion: 0.0.0 # unused
 dependencies:
-  - name: external-secrets
-    repository: https://charts.external-secrets.io
-    version: 0.15.1
+  - name: crossplane
+    repository: https://charts.crossplane.io/stable
+    version: 1.16.0
