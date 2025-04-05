@@ -7,6 +7,6 @@ dependencies:
   - name: secrets-store-csi-driver
     repository: https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
     version: 1.4.8
-  - name: aws-secrets-manager
+  - name: secrets-store-csi-driver-provider-aws
     repository: https://aws.github.io/secrets-store-csi-driver-provider-aws
     version: 0.3.11
