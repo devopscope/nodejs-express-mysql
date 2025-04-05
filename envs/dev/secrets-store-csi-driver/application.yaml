@@ -12,10 +12,10 @@ metadata:
 spec:
   project: default
   source:
-    # helm:
-    #   parameters:
-    #   - name: crossplane.replicas
-    #     value: "1"
+    helm:
+      parameters:
+      - name: secrets-store-csi-driver.syncSecret.enabled
+        value: true
     path: helm/secrets-store-csi-driver
     repoURL: git@github.com:devopscope/nodejs-express-mysql.git
     targetRevision: main    
