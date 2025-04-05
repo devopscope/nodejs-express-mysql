@@ -1,0 +1,12 @@
+apiVersion: v2
+type: application
+name: secrets-store-csi-driver-app
+version: 0.0.0 # unused
+appVersion: 0.0.0 # unused
+dependencies:
+  - name: secrets-store-csi-driver
+    repository: https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+    version: 1.4.8
+  - name: aws-secrets-manager
+    repository: https://aws.github.io/secrets-store-csi-driver-provider-aws
+    version: 0.3.11
