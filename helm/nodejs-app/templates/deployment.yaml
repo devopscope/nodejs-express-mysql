@@ -24,7 +24,7 @@ spec:
               protocol: TCP
           envFrom:
           - secretRef:
-              name: mysql-db-password2
+              name: mysql-db-password3
           volumeMounts:
           - name: secret-volume
             mountPath: /etc/secrets # The path where the secret will be mounted
@@ -57,4 +57,4 @@ spec:
       volumes:
       - name: secret-volume
         secret:
-          secretName: mysql-db-password2          
+          secretName: mysql-db-password3          
