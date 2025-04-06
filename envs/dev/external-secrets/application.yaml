@@ -12,6 +12,10 @@ metadata:
 spec:
   project: default
   source:
+    helm:
+      parameters:
+      - name: external-secrets.serviceAccount.name
+        value: "eso-sa"
     repoURL: git@github.com:devopscope/nodejs-express-mysql.git
     targetRevision: HEAD
     path: helm/external-secrets/
