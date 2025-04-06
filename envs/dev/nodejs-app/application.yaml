@@ -4,7 +4,7 @@ kind: Application
 metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: nodejs-app=529088295441.dkr.ecr.us-east-1.amazonaws.com/ecr-dev-nodejs-app
-    argocd-image-updater.argoproj.io/nodejs-app.update-strategy: semver
+    argocd-image-updater.argoproj.io/nodejs-app.update-strategy: newest-build
     argocd-image-updater.argoproj.io/write-back-method: git
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: nodejsapp
   finalizers:
