@@ -22,17 +22,24 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          env:
-            - name: MYSQL_HOST
-              value: {{ .Values.mysql.host }}
-            - name: MYSQL_PORT
-              value: {{ .Values.mysql.port | quote }}
-            - name: MYSQL_DATABASE
-              value: {{ .Values.mysql.database }}
-            - name: MYSQL_USER
-              value: {{ .Values.mysql.username }}
-            - name: MYSQL_PASSWORD
-              value: {{ .Values.mysql.password }}
+          envFrom:
+          - secretRef:
+              name: mysql-db-password-2
+          volumeMounts:
+          - name: secret-volume
+            mountPath: /etc/secrets # The path where the secret will be mounted
+            readOnly: true          
+          # env:
+          #   - name: MYSQL_HOST
+          #     value: {{ .Values.mysql.host }}
+          #   - name: MYSQL_PORT
+          #     value: {{ .Values.mysql.port | quote }}
+          #   - name: MYSQL_DATABASE
+          #     value: {{ .Values.mysql.database }}
+          #   - name: MYSQL_USER
+          #     value: {{ .Values.mysql.username }}
+          #   - name: MYSQL_PASSWORD
+          #     value: {{ .Values.mysql.password }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.nodeSelector }}
@@ -47,3 +54,7 @@ spec:
           tolerations:
             {{- toYaml . | nindent 12 }}
           {{- end }} 
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: mysql-db-password-2          
