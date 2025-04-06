@@ -4,5 +4,5 @@ metadata:
   name: alper-test-repo
 spec:
   forProvider:
-    imageTagMutability: IMMUTABLE
+    imageTagMutabiddlity: MUTABLE
     region: us-east-1
