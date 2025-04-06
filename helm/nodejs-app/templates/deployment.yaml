@@ -29,17 +29,6 @@ spec:
           - name: secret-volume
             mountPath: /etc/secrets # The path where the secret will be mounted
             readOnly: true          
-          # env:
-          #   - name: MYSQL_HOST
-          #     value: {{ .Values.mysql.host }}
-          #   - name: MYSQL_PORT
-          #     value: {{ .Values.mysql.port | quote }}
-          #   - name: MYSQL_DATABASE
-          #     value: {{ .Values.mysql.database }}
-          #   - name: MYSQL_USER
-          #     value: {{ .Values.mysql.username }}
-          #   - name: MYSQL_PASSWORD
-          #     value: {{ .Values.mysql.password }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.nodeSelector }}
