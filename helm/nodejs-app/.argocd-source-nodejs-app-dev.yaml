@@ -7,7 +7,7 @@ helm:
     value: "8080"
     forcestring: false
   - name: image.tag
-    value: sha-c89ee1605e152e65a8c7278ae422ac119fb8b2f9
+    value: sha-072394fb593e5b6d3d88d53b709458d2e94cb3c7
     forcestring: true
   - name: image.name
     value: 529088295441.dkr.ecr.us-east-1.amazonaws.com/ecr-dev-nodejs-app
